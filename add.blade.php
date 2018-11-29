@@ -13,33 +13,45 @@
             </ul>
         </div>
         @endif
-        <h2 class="block-title">广告</h2>
+        <h2 class="block-title">友情链接</h2>
         <div class="tile p-15">
-            <form action="/admin/ad" method="post" class="mws-form" enctype="multipart/form-data" role="form">
+            <form action="/admin/fri" method="post" class="mws-form" enctype="multipart/form-data" role="form">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">广告名称</label>
-                    <input type="text" class="form-control input-sm" id="exampleInputText1" placeholder="Name" name="aname">
+                    <label for="exampleInputEmail1">链接标题</label>
+                    <input type="text" class="form-control input-sm" id="exampleInputText1" placeholder="Enter title" name="ftitle">
                 </div>
                 
                 <div class="form-group">
-                    <label for="exampleInputContent1">广告内容</label>
-                    <input type="text" class="form-control input-sm" id="exampleInputText2" placeholder="Content" name="content">
+                    <label for="exampleInputContent1">链接描述</label>
+                    <input type="text" class="form-control input-sm" id="exampleInputText2" placeholder="Content" name="descript">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputUrl1">链接地址</label>
+                    <input type="url" class="form-control input-sm" id="exampleInputUrl1" placeholder="Url" name="url">
                 </div>
 
                 <div class="fileupload fileupload-new" data-provides="fileupload">
-                    <label for="exampleInputContent1">广告图片</label><br>
-                    <div class="fileupload-preview thumbnail form-control"></div>                       
-                    <div>
-                        <span class="btn btn-file btn-alt btn-sm">
-                            <span class="fileupload-new">选择图片</span>
-                            <span class="fileupload-exists">重选</span>
-                            <input type="file" name="apic">
+                    <label for="exampleInputImg1">链接图片</label><br>
+                    <input type="hidden" value="" name="tp">
+                    <div class="fileupload-new thumbnail small form-control"></div>
+                    <div class="fileupload-preview form-control fileupload-exists thumbnail small" style=""></div>
+                    <span class="btn btn-file btn-alt btn-sm">
+                        <span class="fileupload-new">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">选择图像</font>
+                            </font>
                         </span>
-                        <a href="#" class="btn fileupload-exists btn-sm" data-dismiss="fileupload">取消</a>
-                    </div>
-                </div>                          
+                        <span class="fileupload-exists">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">更改</font>
+                            </font>
+                        </span>
+                        <input type="file" name="tp">
+                    </span>
+                    <a href="#" class="btn-sm btn fileupload-exists" data-dismiss="fileupload"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">去掉</font></font></a>
+                </div>
                 {{csrf_field()}}
-                
                 <button type="submit" class="btn btn-sm m-t-10">确定</button>
                 <button type="submit" class="btn btn-sm m-t-10">取消</button>
             </form>
