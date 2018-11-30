@@ -13,15 +13,34 @@
             </ul>
         </div>
         @endif
-        <h2 class="block-title">公告</h2>
+        <h2 class="block-title">广告</h2>
         <div class="tile p-15">
-            <form action="/admin/notice/{{$res->nid}}" method="post" class="mws-form" enctype="multipart/form-data" role="form">
+            <form action="/admin/ad/{{$res->aid}}" method="post" class="mws-form" enctype="multipart/form-data" role="form">
                 <div class="form-group">
-                    <label for="exampleInputContent1">公告内容</label>
+                    <label for="exampleInputEmail1">广告名称</label>
+                    <input type="text" class="form-control input-sm" id="exampleInputText1" placeholder="Name" name="aname" value="{{$res->aname}}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleInputContent1">广告内容</label>
                     <input type="text" class="form-control input-sm" id="exampleInputText2" placeholder="Content" name="content" value="{{$res->content}}">
                 </div>
-                {{csrf_field()}}
-                {{method_field('PUT')}}
+
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="fileupload-preview thumbnail form-control">
+                             <img src="{{$res->apic}}">
+                        </div>                       
+                        <div>
+                            <span class="btn btn-file btn-alt btn-sm">
+                                <span class="fileupload-new">选择图片</span>
+                                <span class="fileupload-exists">重选</span>
+                                <input type="file" name="apic">
+                            </span>
+                            <a href="#" class="btn fileupload-exists btn-sm" data-dismiss="fileupload">取消</a>
+                        </div>
+                    </div>                          
+                    {{csrf_field()}}
+                    {{method_field('PUT')}}              
                 <button type="submit" class="btn btn-sm m-t-10">确定</button>
                 <button type="submit" class="btn btn-sm m-t-10">取消</button>
             </form>
